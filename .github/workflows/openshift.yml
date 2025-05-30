@@ -51,6 +51,12 @@ jobs:
         echo "${{ steps.build_image.outputs.image }}"
         echo "${{ steps.build_image.outputs.tags }}"
 
+    - name: dog
+      run: |
+         sudo apt-get update
+         sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+         docker --version
+
     # https://github.com/redhat-actions/push-to-registry#readme
     - name: Push to Registry 
       id: push-to-registry
