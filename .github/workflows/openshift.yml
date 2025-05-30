@@ -46,10 +46,10 @@ jobs:
     - name: List All Environment Variables
       run: env
 
-    - name: Print Environment Variables
+    - name: Steps Build Image Outputs
       run: |
-        echo "GITHUB SHA: $GITHUB_SHA"
-        echo "GITHUB REF: ${{ github.ref }}"
+        echo "${{ steps.build_image.outputs.image }}"
+        echo "${{ steps.build_image.outputs.tags }}"
 
     # https://github.com/redhat-actions/push-to-registry#readme
     - name: Push to Registry 
